@@ -1,1 +1,13 @@
 
+security:
+  oauth2:
+    client:
+      client-id: clientId
+      client-secret:
+
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
