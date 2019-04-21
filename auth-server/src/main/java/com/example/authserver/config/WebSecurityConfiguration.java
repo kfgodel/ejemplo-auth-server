@@ -3,7 +3,6 @@ package com.example.authserver.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
@@ -31,11 +30,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .build());
     }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
-        http.csrf().disable();
-    }
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        super.configure(http);
+//        http.csrf().disable();
+//    }
 
     /**
      * Expone el authentication manager como un bean, este va a ser utilizado en {@link AuthorizationServerConfiguration}

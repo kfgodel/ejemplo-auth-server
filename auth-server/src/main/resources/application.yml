@@ -1,11 +1,6 @@
 
-security:
-  oauth2:
-    client:
-      client-id: first-client
-      client-secret: noonewilleverguess
-      scope: any
-
+# Necesario para que las reglas del resource server apliquen a todas las rutas
+security.oauth2.resource.filter-order: 3
 
 logging:
   level:
