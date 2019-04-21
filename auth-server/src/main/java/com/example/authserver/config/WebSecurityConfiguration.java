@@ -2,6 +2,7 @@ package com.example.authserver.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
@@ -27,5 +28,15 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .password("password")
                 .roles("USER")
                 .build());
+    }
+
+    /**
+     * Expone el authentication manager como un bean, este va a ser utilizado en {@link AuthorizationServerConfiguration}
+     * para habilitar el password grant
+     */
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 }
