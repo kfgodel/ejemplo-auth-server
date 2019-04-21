@@ -15,13 +15,16 @@ algunos beans para que funcione (ver historial de commits).
 
 Debería autenticar como el cliente
 
+- **password**
+> curl first-client:noonewilleverguess@localhost:8080/oauth/token -dgrant_type=password -dusername=enduser-d password=password  
+
+Deberia autenticar como el usuario
+
 - **authorization_code**
+  - Ignorar el annotation de @Configuration en  AuthorizationServerConfiguration
   - Ir a  http://localhost:8080/oauth/authorize?grant_type=authorization_code&response_type=code&client_id=first-client&state=1234
   - Loguear como enduser:password  
   - Redirige a  http://localhost:8081/oauth/login/client-app una vez aprobado
   
-- **password**
-  - Ignorar el annotation de @Configurtation en  AuthorizationServerConfiguration
-> curl first-client:noonewilleverguess@localhost:8080/oauth/token -dgrant_type=password -dusername=enduser-d password=password  
    
 

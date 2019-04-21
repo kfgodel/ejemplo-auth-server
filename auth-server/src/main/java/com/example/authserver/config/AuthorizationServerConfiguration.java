@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 
 /**
  * La existencia de esta clase pisa la definicion por default de oauth2, pero permite parametrizar
@@ -33,11 +34,21 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .secret(passwordEncoder().encode("noonewilleverguess"))
                 .scopes("resource:read")
                 .authorizedGrantTypes("password","client_credentials","authorization_code")
-                .redirectUris("http://localhost:8081/oauth/login/client-app");
+                .redirectUris("http://localhost:8081/oauth/login/client-app")
+        ;
     }
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints.authenticationManager(authenticationManager); // Habilita el password grant
+        endpoints
+          .authenticationManager(authenticationManager) // Habilita el password grant
+        ;
+    }
+
+    @Override
+    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+        security
+          .allowFormAuthenticationForClients()
+        ;
     }
 }
