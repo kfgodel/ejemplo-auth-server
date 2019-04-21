@@ -21,5 +21,7 @@ Debería autenticar como el cliente
   - Redirige a  http://localhost:8081/oauth/login/client-app una vez aprobado
   
 - **password**
-    
+  - Ignorar el annotation de @Configurtation en  AuthorizationServerConfiguration
+> curl first-client:noonewilleverguess@localhost:8080/oauth/token -dgrant_type=password -dusername=enduser-d password=password  
+   
 

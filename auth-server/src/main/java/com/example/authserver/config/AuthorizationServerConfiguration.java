@@ -1,7 +1,6 @@
 package com.example.authserver.config;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -12,7 +11,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
  * más cosas que las que permite {@link org.springframework.boot.autoconfigure.security.oauth2.authserver.OAuth2AuthorizationServerConfiguration}
  *
  */
-@Configuration
+//@Configuration
 public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
 
     @Bean
