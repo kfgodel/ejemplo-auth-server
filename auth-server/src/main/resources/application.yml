@@ -2,8 +2,9 @@
 security:
   oauth2:
     client:
-      client-id: clientId
-      client-secret:
+      client-id: first-client
+      client-secret: noonewilleverguess
+      scope: any
 
 
 logging:
