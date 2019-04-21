@@ -33,7 +33,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .withClient("first-client")
                 .secret(passwordEncoder().encode("noonewilleverguess"))
                 .scopes("resource:read")
-                .authorizedGrantTypes("password","client_credentials","authorization_code")
+                .authorizedGrantTypes("password","client_credentials","authorization_code","refresh_token")
                 .redirectUris("http://localhost:8081/oauth/login/client-app")
         ;
     }
